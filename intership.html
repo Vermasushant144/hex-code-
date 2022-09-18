@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+     
+
+
+
+        .container{
+            border: 1px solid black; 
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            justify-content: left;
+            align-items: center;
+        }
+        .hex-color{
+            border: 1px  black;
+            text-align: center;
+        }
+        .hex-color h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            animation: colorchange 5s infinite alternate;
+        }
+        .hex-color h2{
+            border: 1px  black;
+            margin-top: 10%;
+            font-size: 2rem;
+            animation: change 2s infinite alternate;
+        }
+        @keyframes  colorchange{
+            0%{
+                color: blue;
+            }
+            20%{
+                color: yellow;
+            }
+            40%{
+                color: orange;
+            }
+            60%{
+                color: red;
+            }
+            80%{
+                color: green;
+            }
+            100%{
+                color: pink;
+            }
+            
+        }
+        @keyframes  change{
+            0%{
+                color: blue;
+            }
+            20%{
+                color:orangered;
+            }
+            40%{
+                color: yellow;
+            }
+            60%{
+                color: red;
+            }
+            80%{
+                color: green;
+            }
+            100%{
+                color: yellowgreen;
+            }
+            
+        }
+        @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Exo', sans-serif;
+}
+
+
+.context {
+    width: 100%;
+    position: absolute;
+    top:50vh;
+    
+}
+
+.context h1{
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+
+.area{
+    background: #4e54c8;  
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    width: 100%;
+    height:100vh;
+    
+   
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+
+
+    </style>
+</head>
+<body>
+  <div class="context">
+    <h1>
+      Hello , This is my First task 
+    </h1>
+  
+</div>
+
+
+<div class="area" >
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+</div >
+
+   
+    <div class="container">
+        <div class="hex-color">
+            <h1>
+                Click the button bellow to display the hex code of the a random color
+            </h1>
+           <h2>background: linear-gradient(to right, #<span id="hex-code">ffffff</span>, #<span id="hexcode2">ffffff</span>);
+        </h2>
+            <button  id="qwe" type="button" class="btn btn-primary">Click Me</button>
+        </div>
+    </div>
+</body>
+<script>
+
+  document.querySelector("#qwe").addEventListener("click", () => {
+  var hex_numbers = ["0","1","2","3","4","5","6","7","8","9","A", "B", "C", "D", "E", "F"];
+  var hexcode1 = "";
+  var hexcode2 = "";
+  var random_index = 0;
+  
+  for(let i = 0; i < 6;i++){
+    random_index = Math.floor(Math.random() * hex_numbers.length);
+      hexcode1 += hex_numbers[random_index];
+    random_index = Math.floor(Math.random() * hex_numbers.length);
+      hexcode2 += hex_numbers[random_index];
+  }
+
+  document.body.style.background = `linear-gradient(to right, #${hexcode1}, #${hexcode2})`;
+  document.querySelector("#hexcode").textContent = hexcode1;
+  document.getElementById("hex-code").innerHTML = hexcode1; document.getElementById("hexcode1").innerHTML = hexcode1;
+  document.getElementsByTagName("body")[0].style.background = "#" + hexcode1;
+  document.getElementsByTagName("body")[0].style.background = "#" + hexcode2;
+  document.getElementById("hexcode2").innerHTML = hexcode2; document.getElementById("hexcode2").innerHTML = hexcode2;
+  document.querySelector("#hexcode2").textContent = hexcode2;
+  document.getElementById("hexcode2").innerHTML = hexcode2;
+});
+
+
+
+</script>
+</html>
+</body>
+</html>
